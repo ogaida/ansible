@@ -1,0 +1,12 @@
+---
+- hosts: ubuntu
+  tasks:
+  - name: Hallo Welt Ausgabe
+    debug:
+      msg: Hallo Welt
+
+
+
+
+
+
