@@ -1,0 +1,12 @@
+---
+# Aufruf:
+#   ansible-playbook Folge002/del_user_ubuntu.yml
+- hosts: ubuntu
+  become: yes
+  tasks:
+  - name: Delete User oliver 
+    ansible.builtin.user:
+      name: oliver
+      state: absent
+
+      

@@ -1,0 +1,15 @@
+---
+# Aufruf:
+#   ansible-playbook Folge002/add_user_windows.yml
+- hosts: windows
+  become: yes
+  become_method: runas
+  become_user: "{{ ansible_user }}"
+  tasks:
+  - name: Add User oliver 
+    ansible.windows.win_user:
+      name: oliver
+      password: 12345678
+      state: present
+      groups:
+        - Administrators

@@ -1,0 +1,12 @@
+---
+# Aufruf:
+#   ansible-playbook Folge002/del_user_windows.yml
+- hosts: windows
+  become: yes
+  become_method: runas
+  become_user: "{{ ansible_user }}"
+  tasks:
+  - name: Delete User oliver 
+    ansible.windows.win_user:
+      name: oliver
+      state: absent

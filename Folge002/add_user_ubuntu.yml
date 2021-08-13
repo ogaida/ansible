@@ -1,0 +1,12 @@
+---
+# Aufruf:
+#   ansible-playbook Folge002/add_user_ubuntu.yml
+- hosts: ubuntu
+  become: yes
+  tasks:
+  - name: Add User oliver 
+    ansible.builtin.user:
+      name: oliver
+      shell: /bin/bash
+      password: "{{ '123456789' | password_hash('sha512', 'mysecretsalt') }}"
+      update_password: on_create
